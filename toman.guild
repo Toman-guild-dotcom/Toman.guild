@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOMAN GUILD</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        h1, h2 {
+            color: #00ff66;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+        }
+        td {
+            padding: 10px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background: #00ff66;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background: #00cc55;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+        .card {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #00ff66;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Header -->
+    <marquee direction="left" scrollamount="10" bgcolor="#00ff66" style="color: #000; font-weight: bold; padding: 5px; border-radius: 4px;">
+        🔥 WELCOME TO THE OFFICIAL TOMAN GUILD WEBSITE 🔥
+    </marquee>
+    
+    <h1>TOMAN GUILD</h1>
+    <p style="text-align: center; color: #aaa;">The official recruitment and showcase hub for TOMAN.</p>
+
+    <!-- Section 1: Guild Achievements -->
+    <div class="section">
+        <h2>🏆 Guild Achievements</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Top 100</h3>
+                <p>Regional Leaderboard</p>
+            </div>
+            <div class="card">
+                <h3>Tournament Champions</h3>
+                <p>Community Cup 2026</p>
+            </div>
+            <div class="card">
+                <h3>Level 4</h3>
+                <p>Maxed Out Guild Perks</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Key Guild Members -->
+    <div class="section">
+        <h2>👥 Core Guild Members</h2>
+        <div class="grid">
+            <div class="card" style="border-left-color: #ffcc00;">
+                <h3>ᵀʀ┊.MAHI.</h3>
+                <p>Guild Leader (IGL)</p>
+            </div>
+            <div class="card">
+                <h3>ᵀʀ┊.Mɪᴋᴇʏ.</h3>
+                <p>Acting guild leager</p>
+            </div>
+            <div class="card">
+                <h3>ᵀʀ┊.Aɴᴜʀᴀɢ.</h3>
+                <p>Guild mamager</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Recruitment Form -->
+    <div class="section" style="border-bottom: none;">
+        <h2>📝 Join TOMAN GUILD</h2>
+        <form onsubmit="sendToWhatsApp(event)">
+            <table>
+                <tr>
+                    <td><label>Player Name</label></td>
+                    <td><input type="text" id="playerName" required placeholder="Enter your in-game name"></td>
+                </tr>
+                <tr>
+                    <td><label>Game UID</label></td>
+                    <td><input type="text" id="gameUID" required placeholder="Enter your UID"></td>
+                </tr>
+                <tr>
+                    <td><label>Enter Level</label></td>
+                    <td>
+                        <select id="playerLevel">
+                            <option>40-50 lvl</option>
+                            <option>51-60 lvl</option>
+                            <option>61-70 lvl</option>
+                            <option>71-80 lvl</option>
+                            <option>81-90 lvl</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Enter Role</label></td>
+                    <td>
+                        <input type="radio" name="role" value="Rusher" checked> Rusher <br>
+                        <input type="radio" name="role" value="Sniper"> Sniper <br>
+                        <input type="radio" name="role" value="Bomber"> Bomber <br>
+                        <input type="radio" name="role" value="IGL+Supporter"> IGL + Supporter
+                    </td>
+                </tr>  
+                <tr>
+                    <td colspan="2" style="padding-top: 20px;">
+                        <input type="submit" value="Submit Application via WhatsApp">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</div>
+
+<!-- JavaScript to handle phone redirection -->
+<script>
+function sendToWhatsApp(event) {
+    event.preventDefault(); // Prevents page reload
+
+    // REPLACE THIS WITH YOUR ACTUAL PHONE NUMBER (Include country code, e.g., 91 for India, no spaces or + sign)
+    const myPhoneNumber = "919728909194"; 
+
+    // Get values from form
+    const name = document.getElementById('playerName').value;
+    const uid = document.getElementById('gameUID').value;
+    const level = document.getElementById('playerLevel').value;
+    const role = document.querySelector('input[name="role"]:checked').value;
+
+    // Construct the WhatsApp message text
+    const message = `🔥 *New TOMAN Guild Application* 🔥%0A%0A` +
+                    `👤 *Name:* ${name}%0A` +
+                    `🆔 *UID:* ${uid}%0A` +
+                    `📈 *Level:* ${level}%0A` +
+                    `🎯 *Role:* ${role}`;
+
+    // Open WhatsApp API link
+    window.open(`https://api.whatsapp.com/自由/send?phone=${9728909194}&text=${message}`, '_blank');
+}
+</script>
+
+</body>
+</html>
